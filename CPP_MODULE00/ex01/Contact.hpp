@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:47:25 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/10/09 16:47:28 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/10 01:35:57 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ public:
     std::string		getPhoneNumber();
     std::string		getDarkestSecret();
 };
+
+bool	check_PhoneNumber(std::string phoneNumber);
 
 #endif
