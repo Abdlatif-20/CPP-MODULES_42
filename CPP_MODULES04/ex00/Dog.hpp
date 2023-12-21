@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 01:22:41 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/12 00:25:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2023/12/16 16:46:13 by aben-nei          #+#    #+#             */
+/*   Updated: 2023/12/16 16:46:36 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-Zombie*	zombieHorde( int N, std::string name )
-{
-	if (N <= 0)
-		return (NULL);
-	Zombie *zombie;
+#include "Animal.hpp"
 
-	zombie = new Zombie[N];
-	for(int i = 0;i < N; i++)
-		zombie[i].setName(name);
-	return (zombie);
-}
+class Dog : public Animal{
+    public:
+        Dog();
+        Dog(std::string type);
+        ~Dog();
+};
+
+
+#endif

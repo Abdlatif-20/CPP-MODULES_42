@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 01:22:41 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/12 00:25:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2023/12/16 16:53:07 by aben-nei          #+#    #+#             */
+/*   Updated: 2023/12/16 16:54:24 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Animal.hpp"
 
-Zombie*	zombieHorde( int N, std::string name )
-{
-	if (N <= 0)
-		return (NULL);
-	Zombie *zombie;
+Animal::Animal(){
+	std::cout << "Animal default constructor called" << std::endl;
+}
 
-	zombie = new Zombie[N];
-	for(int i = 0;i < N; i++)
-		zombie[i].setName(name);
-	return (zombie);
+Animal::Animal(std::string type) {
+	this->type = type;
+	std::cout << "Animal constructor called" << std::endl;
 }

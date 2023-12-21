@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 01:22:41 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/12 00:25:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2023/12/13 15:15:36 by aben-nei          #+#    #+#             */
+/*   Updated: 2023/12/16 16:32:37 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-Zombie*	zombieHorde( int N, std::string name )
+int main()
 {
-	if (N <= 0)
-		return (NULL);
-	Zombie *zombie;
-
-	zombie = new Zombie[N];
-	for(int i = 0;i < N; i++)
-		zombie[i].setName(name);
-	return (zombie);
+    DiamondTrap diamond("ABDO");
+    diamond.attack("NO_NAME");
+    diamond.takeDamage(10);
+    diamond.beRepaired(10);
+    diamond.guardGate();
+    diamond.highFivesGuys();
+    diamond.whoAmI();
 }

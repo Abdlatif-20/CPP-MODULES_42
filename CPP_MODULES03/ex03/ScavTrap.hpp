@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 01:22:41 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/12 00:25:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2023/12/13 15:34:43 by aben-nei          #+#    #+#             */
+/*   Updated: 2023/12/16 16:28:11 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef SCAVTRAP_HPP
 
-Zombie*	zombieHorde( int N, std::string name )
-{
-	if (N <= 0)
-		return (NULL);
-	Zombie *zombie;
+# define SCAVTRAP_HPP
 
-	zombie = new Zombie[N];
-	for(int i = 0;i < N; i++)
-		zombie[i].setName(name);
-	return (zombie);
-}
+#include "ClapTrap.hpp"
+
+class ScavTrap : public virtual ClapTrap{
+	public:
+		ScavTrap(std::string name);
+		~ScavTrap();
+		void	guardGate();
+		void	attack(const std::string& target);
+		
+};
+
+#endif
