@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:47:21 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/11/01 18:41:09 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/12 00:52:18 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void    openFile(char **av)
 
 void	findAndReplace(std::string& file, std::string s1, std::string s2)
 {
+	if (s1 == s2)
+	{
+		std::cout << "Error: s1 and s2 are the same" << std::endl;
+		return ;
+	}
 	size_t found = 0;
 	std::ofstream outputFile("file.replace");
 

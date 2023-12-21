@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 01:22:41 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/12 00:25:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2023/12/13 13:00:02 by aben-nei          #+#    #+#             */
+/*   Updated: 2023/12/13 15:30:45 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-Zombie*	zombieHorde( int N, std::string name )
-{
-	if (N <= 0)
-		return (NULL);
-	Zombie *zombie;
+#include <iostream>
 
-	zombie = new Zombie[N];
-	for(int i = 0;i < N; i++)
-		zombie[i].setName(name);
-	return (zombie);
-}
+class ClapTrap{
+	private:
+		std::string	name;
+		int			hitPoints;
+		int			energyPoints;
+		int			attackDamage;
+	public:
+		void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+		int	getHitPoints();
+		ClapTrap(std::string name);
+		~ClapTrap();
+};
+
+#endif

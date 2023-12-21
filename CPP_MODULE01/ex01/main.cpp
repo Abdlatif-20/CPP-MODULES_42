@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 01:27:53 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/11/12 00:21:22 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/12 00:59:18 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ int	main()
 {
     Zombie *zombie;
 
-    zombie = zombieHorde(5, "zombie2023");
-    for(int i = 0;i < 5; i++)
+    zombie = zombieHorde(3, "zombie2023");
+    if (zombie == NULL)
+    {
+        std::cout << "Error: N is negative or null" << std::endl;
+        return (1);
+    }
+    for(int i = 0;i < 3; i++)
     {
         zombie[i].announce();
     }

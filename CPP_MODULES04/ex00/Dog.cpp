@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 01:22:41 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/12 00:25:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2023/12/16 16:45:59 by aben-nei          #+#    #+#             */
+/*   Updated: 2023/12/16 16:47:34 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Dog.hpp"
 
-Zombie*	zombieHorde( int N, std::string name )
-{
-	if (N <= 0)
-		return (NULL);
-	Zombie *zombie;
+Dog::Dog() : Animal("default") {
+    std::cout << "Dog default constructor called" << std::endl;
+}
 
-	zombie = new Zombie[N];
-	for(int i = 0;i < N; i++)
-		zombie[i].setName(name);
-	return (zombie);
+Dog::Dog(std::string type) : Animal(type) {
+    std::cout << "Dog constructor called" << std::endl;
+}
+
+Dog::~Dog() {
+    std::cout << "Dog destructor called" << std::endl;
 }
