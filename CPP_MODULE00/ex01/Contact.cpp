@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:30:52 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/10/09 17:12:28 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/10 01:37:33 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,66 @@
 
 void	Contact::setFirstName(std::string firstName)
 {
-    this->firstName = firstName;
+	this->firstName = firstName;
 }
 
 void    Contact::setLastName(std::string lastName)
 {
-    this->lastName = lastName;
+	this->lastName = lastName;
 }
 
 void    Contact::setNickname(std::string nickname)
 {
-    this->nickname = nickname;
+	this->nickname = nickname;
 }
+
+bool check_PhoneNumber(std::string phoneNumber)
+{
+	for (int i = 0; phoneNumber[i]; i++)
+	{
+		if (!isdigit(phoneNumber[i]))
+			return (false);
+	}
+	return (true);
+}l
 
 void    Contact::setPhoneNumber(std::string phoneNumber)
 {
-    this->phoneNumber = phoneNumber;
+	while (!check_PhoneNumber(phoneNumber))
+	{
+		std::cout << "\033[1;31mPhone number can't contain letters\033[0m" << std::endl;
+		std::cout << "Enter phone number: ";
+		std::getline(std::cin, phoneNumber);
+	}
+	this->phoneNumber = phoneNumber;
 }
 
 void    Contact::setDarkestSecret(std::string darkestSecret)
 {
-    this->darkestSecret = darkestSecret;
+	this->darkestSecret = darkestSecret;
 }
 
 std::string	Contact::getFirstName()
 {
-    return (this->firstName);
+	return (this->firstName);
 }
 
 std::string	Contact::getLastName()
 {
-    return (this->lastName);
+	return (this->lastName);
 }
 
 std::string	Contact::getNickname()
 {
-    return (this->nickname);
+	return (this->nickname);
 }
 
 std::string	Contact::getPhoneNumber()
 {
-    return (this->phoneNumber);
+	return (this->phoneNumber);
 }
 
 std::string	Contact::getDarkestSecret()
 {
-    return (this->darkestSecret);
+	return (this->darkestSecret);
 }

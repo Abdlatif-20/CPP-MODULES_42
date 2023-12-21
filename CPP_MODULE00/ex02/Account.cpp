@@ -6,11 +6,12 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 18:49:26 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/10/16 20:23:50 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/08 15:04:29 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <ctime>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -127,5 +128,12 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout<<"[19920104_091532] ";
+	tm		*info;
+	time_t	_epoch;
+	char	line[256];
+
+	std::time(&_epoch);
+	info = std::localtime(&_epoch);
+	std::strftime(line, 256, "[%Y%m%d_%H%M%S] ", info);
+	std::cout << line;
 }
