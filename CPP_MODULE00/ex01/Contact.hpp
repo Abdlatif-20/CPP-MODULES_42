@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:47:25 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/10 01:35:57 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/11 08:40:11 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CONTACT_HPP
 
 # include <iostream>
-# include <string>
 
 class Contact
 {
@@ -38,5 +37,6 @@ public:
 };
 
 bool	check_PhoneNumber(std::string phoneNumber);
+void    fill_contact(std::string* input, std::string str);
 
 #endif

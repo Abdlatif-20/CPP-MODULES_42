@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 00:44:38 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/11/11 17:56:48 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/08 19:49:06 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	Zombie::setName(std::string name)
 }
 std::string	Zombie::getNmae()
 {
-	return(this->string_name);	
+	return(this->string_name);
 }
 
 void	Zombie::announce()

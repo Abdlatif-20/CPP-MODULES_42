@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 00:52:09 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/10/18 00:59:47 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/08 23:02:16 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 Zombie*	newZombie(std::string name)
 {
-    Zombie *new_zombie;
+	Zombie *new_zombie;
 
-    new_zombie = new Zombie();
-    new_zombie->setName(name);
-    return (new_zombie);
+	new_zombie = new Zombie();
+	new_zombie->setName(name);
+	return (new_zombie);
 }

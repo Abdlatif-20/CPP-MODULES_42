@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:30:52 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/10 01:37:33 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/11 08:40:06 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool check_PhoneNumber(std::string phoneNumber)
 			return (false);
 	}
 	return (true);
-}l
+}
 
 void    Contact::setPhoneNumber(std::string phoneNumber)
 {
@@ -43,7 +43,7 @@ void    Contact::setPhoneNumber(std::string phoneNumber)
 	{
 		std::cout << "\033[1;31mPhone number can't contain letters\033[0m" << std::endl;
 		std::cout << "Enter phone number: ";
-		std::getline(std::cin, phoneNumber);
+		fill_contact(&phoneNumber, "phone number");
 	}
 	this->phoneNumber = phoneNumber;
 }

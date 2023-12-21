@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:31:03 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/10 01:31:35 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/10 22:00:37 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ std::string	check_empty_eof(std::string input, std::string str)
 	return (input);
 }
 
-void filed_contact(std::string* input, std::string str)
+void fill_contact(std::string* input, std::string str)
 {
     if (std::getline(std::cin, *input).eof() || input->empty()) {
         *input = check_empty_eof(*input, str);
@@ -60,21 +60,21 @@ void	PhoneBook::SetContact(int index)
 	std::string darkestSecret;
 
 	std::cout << "Enter first name: ";
-	filed_contact(&firstName, "first name");
+	fill_contact(&firstName, "first name");
 	this->contacts[index].setFirstName(firstName);
 	std::cout << "Enter last name: ";
-	filed_contact(&lastName, "last name");
+	fill_contact(&lastName, "last name");
 	this->contacts[index].setLastName(lastName);
 	std::cout << "Enter nickname: ";
-	filed_contact(&nickname, "nickname");
+	fill_contact(&nickname, "nickname");
 	this->contacts[index].setNickname(nickname);
 	std::cout << "Enter phone number: ";
-	filed_contact(&phoneNumber, "phone number");
+	fill_contact(&phoneNumber, "phone number");
 	this->contacts[index].setPhoneNumber(phoneNumber);
 	std::cout << "Enter darkest secret: ";
-	filed_contact(&darkestSecret, "darkest secret");
+	fill_contact(&darkestSecret, "darkest secret");
 	this->contacts[index].setDarkestSecret(darkestSecret);
-	std::cout << "\033[1;32mContact " << index + 1 << " added successfully\033[0m" << std::endl;
+	std::cout << "\033[1;32m<< Contact " << index + 1 << " added successfully >>\033[0m" << std::endl;
 }
 
 void	PhoneBook::addContact(int index)
@@ -106,11 +106,11 @@ void	table()
 		<< "|" << std::endl;
 }
 
-void	print_index(std::string indexStr, int *index, int nbContacts)
+void	get_index(std::string indexStr, int *index, int nbContacts)
 {
 	while (1)
 	{
-		std::cout << "Enter a valid index: " << std::endl;
+		std::cout << "Enter a valid index: ";
 		if (std::getline(std::cin, indexStr).eof())
 			exit(0);
 		if (check_if_degit(indexStr) == false)
@@ -157,7 +157,7 @@ void	PhoneBook::searchContact()
 			<< std::setw(10) << this->cut_string(contacts[i].getNickname()) << "|"
 			<< std::endl;
 	}
-	print_index(indexStr, &index, this->nbContacts);
+	get_index(indexStr, &index, this->nbContacts);
 	index--;
 	std::cout << "index: " << index + 1 << std::endl
 		<< "firstName: " << this->contacts[index].getFirstName() << std::endl
@@ -177,12 +177,12 @@ int main(int ac, char **av)
 	if (ac != 1)
 		return (0);
 	index = 0;
+	std::cout << "\033[1;35m" << "Welcome to the phonebook"
+	<< "\033[0m" << std::endl;
 	while (1)
 	{
-		std::cout << "\033[1;35m" << "Welcome to the phonebook"
-		<< "\033[0m" << std::endl;
 		std::cout << "Enter a command " << "\033[1;36m"
-		<< "(ADD, SEARCH, EXIT)" << "\033[0m"<< ":"<< std::endl;
+		<< "(ADD, SEARCH, EXIT)" << "\033[0m"<< ": ";
 		std::getline(std::cin, command);
 		if (command == "EXIT" || std::cin.eof())
 			break ;
@@ -191,7 +191,7 @@ int main(int ac, char **av)
 		else if (command == "SEARCH")
 			phoneBook.searchContact();
 		else
-			std::cout << "Invalid command" << std::endl;
+			std::cout << "\033[1;31mInvalid command\033[0m" << std::endl;
 	}
 	return (0);
 }

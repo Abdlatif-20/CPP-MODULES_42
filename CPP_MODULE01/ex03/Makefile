@@ -6,7 +6,7 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 02:13:50 by aben-nei          #+#    #+#              #
-#    Updated: 2023/10/18 02:35:07 by aben-nei         ###   ########.fr        #
+#    Updated: 2023/12/08 22:40:06 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ Name = weapon
 
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-FLAGS = -Wall -Wextra -Werror -g
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 CPP = c++
 

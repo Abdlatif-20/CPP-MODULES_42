@@ -6,13 +6,13 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 00:57:48 by aben-nei          #+#    #+#              #
-#    Updated: 2023/10/18 01:15:04 by aben-nei         ###   ########.fr        #
+#    Updated: 2023/12/08 22:59:23 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 Name = zombie
 
-Flags = -Wall -Wextra -Werror
+Flags = -Wall -Wextra -Werror -std=c++98
 
 CPP = c++
 
@@ -25,7 +25,7 @@ all: $(Name)
 $(Name): $(OBJ)
 	$(CPP) $(Flags) $(OBJ) -o $(Name)
 
-%.o: %.cpp %.hpp
+%.o: %.cpp Zombie.hpp
 	$(CPP) $(Flags) -c $< -o $@
 
 clean:

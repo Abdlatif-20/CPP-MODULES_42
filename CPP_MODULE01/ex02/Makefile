@@ -6,7 +6,7 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/18 01:45:53 by aben-nei          #+#    #+#              #
-#    Updated: 2023/10/18 01:46:54 by aben-nei         ###   ########.fr        #
+#    Updated: 2023/12/08 22:39:58 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 CPP = c++
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(Name)
 

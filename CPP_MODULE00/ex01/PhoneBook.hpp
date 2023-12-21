@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:31:06 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/10 00:36:52 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/10 21:58:38 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 # define PHONEBOOK_HPP
 
-# include <iostream>
 # include <iomanip>
 # include "Contact.hpp"
 

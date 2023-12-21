@@ -6,7 +6,7 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 19:18:36 by aben-nei          #+#    #+#              #
-#    Updated: 2023/11/02 19:20:03 by aben-nei         ###   ########.fr        #
+#    Updated: 2023/12/08 23:00:45 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,14 @@ OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp %.hpp
+%.o: %.cpp Harl.hpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
