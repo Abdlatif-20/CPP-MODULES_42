@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 02:04:06 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/10/18 02:08:52 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/21 10:26:43 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    HumanA::attack()
 {
-	std::cout<<name<<"> attacks with their "<<weapon.getType()<<std::endl;
+	std::cout<<name<<" attacks with their "<<weapon.getType()<<std::endl;
 }
 
 HumanA::HumanA(std::string name, Weapon weapon)

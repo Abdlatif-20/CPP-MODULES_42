@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:47:21 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/12 00:52:18 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:47:10 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void    openFile(char **av)
 	{
 		while (std::getline(outFile, line))
 			file += line + "\n";
-		
 		outFile.close();
 	}
 	else
@@ -46,15 +45,15 @@ void	findAndReplace(std::string& file, std::string s1, std::string s2)
 	std::ofstream outputFile("file.replace");
 
 	if (!outputFile.is_open()) {
-        std::cerr << "Failed to open the file for writing." << std::endl;
-        return ;
-    }
+		std::cerr << "Failed to open the file for writing." << std::endl;
+		return ;
+	}
 	found = file.find(s1, found);
-    if (found != std::string::npos) {
-        file.erase(found, s1.length());
+	if (found != std::string::npos) {
+		file.erase(found, s1.length());
 		file.insert(found, s2);
-        findAndReplace(file, s1, s2);
-    }
+		findAndReplace(file, s1, s2);
+	}
 	outputFile << file;
 }
 
