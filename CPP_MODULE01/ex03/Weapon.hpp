@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 01:53:26 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/21 10:11:44 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:20:38 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class Weapon{
 	private:
 		std::string type;
 	public:
-		std::string getType()const;
-		void	setType(std::string type);
-		Weapon(std::string type);
+		const std::string& getType() const;
+		void	setType(const std::string& type);
+		Weapon(const std::string& type);
 		Weapon();
 };
 

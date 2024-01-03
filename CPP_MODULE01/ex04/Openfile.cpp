@@ -6,24 +6,28 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:47:21 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/21 13:47:10 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/24 21:55:09 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Getfile.hpp"
 
-void	printFile(std::string file);
-
 void    openFile(char **av)
 {
-	std::ifstream outFile;
+	std::ifstream outFile(av[1]);
 	std::string line;
 	std::string file;
-	outFile.open(av[1]);
+
 	if (outFile.is_open())
 	{
 		while (std::getline(outFile, line))
 			file += line + "\n";
+		if (file.empty())
+		{
+			std::cout << "Error: file is empty" << std::endl;
+			outFile.close();
+			return ;
+		}
 		outFile.close();
 	}
 	else
@@ -31,19 +35,23 @@ void    openFile(char **av)
 		std::cout << "Error opening file" << std::endl;
 		return ;
 	}
-	findAndReplace(file, av[2], av[3]);
+	findAndReplace(file, av[2], av[3], av[1]);
 }
 
-void	findAndReplace(std::string& file, std::string s1, std::string s2)
+void	findAndReplace(std::string& file, std::string s1, std::string s2, const std::string& fileName)
 {
 	if (s1 == s2)
 	{
 		std::cout << "Error: s1 and s2 are the same" << std::endl;
 		return ;
 	}
-	size_t found = 0;
-	std::ofstream outputFile("file.replace");
-
+	std::ofstream outputFile(fileName + ".replace");
+	if (s1.empty())
+	{
+		outputFile << file;
+		return ;
+	}
+	static size_t found = 0;
 	if (!outputFile.is_open()) {
 		std::cerr << "Failed to open the file for writing." << std::endl;
 		return ;
@@ -52,17 +60,8 @@ void	findAndReplace(std::string& file, std::string s1, std::string s2)
 	if (found != std::string::npos) {
 		file.erase(found, s1.length());
 		file.insert(found, s2);
-		findAndReplace(file, s1, s2);
+		found += s2.length();
+		findAndReplace(file, s1, s2, fileName);
 	}
 	outputFile << file;
-}
-
-void	printFile(std::string file)
-{
-	int i = 0;
-	while (file[i])
-	{
-		std::cout << file[i];
-		i++;
-	}
 }

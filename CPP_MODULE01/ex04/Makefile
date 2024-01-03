@@ -6,7 +6,7 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 12:41:12 by aben-nei          #+#    #+#              #
-#    Updated: 2023/12/08 23:00:31 by aben-nei         ###   ########.fr        #
+#    Updated: 2023/12/23 19:13:35 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,16 +23,20 @@ CPLUS = c++
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPLUS) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CPLUS) $(FLAGS) $(OBJS) -o $(NAME)
+	@echo "\033[32m[ ✔ ] $(NAME) created successfully!\033[0m"
 
 %.o: %.cpp Getfile.hpp
-	$(CPLUS) $(FLAGS) -c $< -o $@
+	@$(CPLUS) $(FLAGS) -c $< -o $@
+	@echo "\033[33m[ ✔ ] $<\033[0m"
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
+	@echo "\033[31m[ ✔ ] $(NAME) objects deleted successfully!\033[0m"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo "\033[31m[ ✔ ] $(NAME) deleted successfully!\033[0m"
 
 re: fclean all
 

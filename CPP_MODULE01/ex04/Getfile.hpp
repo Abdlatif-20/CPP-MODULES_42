@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:48:58 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/10/20 13:04:04 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/23 13:41:23 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ class Getfile{
 };
 
 void    openFile(char **av);
-void	findAndReplace(std::string& file, std::string s1, std::string s2);
+void	findAndReplace(std::string& file, std::string s1, std::string s2, const std::string& fileName);
 #endif

@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 00:47:49 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/11/11 17:52:54 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/26 02:13:20 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class Zombie
 {
 	private:
-		std::string	string_name;
+		std::string	name;
 	public:
 		Zombie();
+		Zombie(const std::string& name);
 		~Zombie();
 		void	announce();
-		void	setName(std::string name);
-		std::string	getNmae();
+		std::string	getName();
 };
 void	randomChump(std::string name);
 Zombie*	newZombie(std::string name);

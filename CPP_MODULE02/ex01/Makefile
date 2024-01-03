@@ -5,34 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/11 03:59:02 by aben-nei          #+#    #+#              #
-#    Updated: 2023/11/29 02:43:07 by aben-nei         ###   ########.fr        #
+#    Created: 2023/12/26 02:45:36 by aben-nei          #+#    #+#              #
+#    Updated: 2023/12/31 23:36:08 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = fixedPoint
 
-NAME = fixed02
-
-SRCS = main.cpp Fixed.cpp
+SRCS = Fixed.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-CC = c++
+CPP = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
+	@echo "\033[32m[OK] \033[0m\033[1m\033[32m$(NAME)\033[0m \033[1mcreated\033[0m"
 
 %.o: %.cpp Fixed.hpp
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CPP) $(FLAGS) -c $< -o $@
+	@echo "\033[32m[OK] \033[0m\033[1mCompilation of \033[36m$<\033[0m \033[1msuccessfull\033[0m"
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJS)
+	@echo "\033[31m[OK] \033[0m\033[1mObjects files deleted\033[0m"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
+	@echo "\033[31m[OK] \033[0m\033[1m$(NAME) deleted\033[0m"
 
 re: fclean all

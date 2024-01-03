@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 01:52:26 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/11/13 23:02:09 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:25:57 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class HumanA{
 	private:
 		std::string name;
-		Weapon weapon;
+		Weapon& weapon;
 	public:
 		void	attack();
-		HumanA(std::string name, Weapon weapon);
+		HumanA(std::string name, Weapon& weapon);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 00:44:38 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/08 19:49:06 by aben-nei         ###   ########.fr       */
+/*   Updated: 2023/12/23 17:22:19 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 Zombie::Zombie()
 {
-	std::cout<<"Zombie created"<<std::endl;
+	std::cout<<"Zombie Default created"<<std::endl;
+}
+
+Zombie::Zombie(const std::string& name) : name(name)
+{
+	std::cout<<"Zombie parameter created"<<std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout<<"Zombie <"<<getNmae()<<"> destroyed"<<std::endl;
+	std::cout<<"Zombie "<<getName()<<" destroyed"<<std::endl;
 }
 
-void	Zombie::setName(std::string name)
+std::string	Zombie::getName()
 {
-	this->string_name = name;
-}
-std::string	Zombie::getNmae()
-{
-	return(this->string_name);
+	return(this->name);
 }
 
 void	Zombie::announce()
 {
-	std::cout<<string_name<<": : BraiiiiiiinnnzzzZ..."<<std::endl;
+	std::cout<<name<<": : BraiiiiiiinnnzzzZ..."<<std::endl;
 }
