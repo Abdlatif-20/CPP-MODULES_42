@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 15:15:36 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/13 15:30:15 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/04 10:40:33 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/04 12:04:20 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int main()
 {
-    ClapTrap clapTrap("NO_NAME");
-    clapTrap.attack("Abdo");
-    clapTrap.takeDamage(5);
-    clapTrap.beRepaired(5);
-    return (0);
+	ClapTrap b("Abdo");
+	b.takeDamage(10);
+	b.attack("russia");
+	return 0;
 }

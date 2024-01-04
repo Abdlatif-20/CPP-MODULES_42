@@ -5,29 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 13:00:02 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/13 15:30:45 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/04 10:40:31 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/04 11:34:39 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#pragma once
 
-#include <iostream>
+#include<iostream>
 
-class ClapTrap{
+class ClapTrap
+{
 	private:
 		std::string	name;
-		int			hitPoints;
-		int			energyPoints;
+		int			hitPoint;
+		int			energyPoint;
 		int			attackDamage;
 	public:
+		ClapTrap();
+		ClapTrap(const std::string& name);
+		ClapTrap(const ClapTrap& obj);
+		ClapTrap& operator=(const ClapTrap& obj);
+		~ClapTrap();
+
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		int	getHitPoints();
-		ClapTrap(std::string name);
-		~ClapTrap();
 };
-
-#endif

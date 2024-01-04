@@ -5,26 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 17:58:30 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/16 13:47:49 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/04 12:46:54 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/04 13:09:00 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
+#pragma once
 
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class DiamondTrap : public ScavTrap , public FragTrap
+{
 	private:
-		std::string name;
+		std::string	name;
 	public:
-		DiamondTrap(std::string name);
-		std::string	getName();
+		DiamondTrap();
+		DiamondTrap(const std::string& name);
+		DiamondTrap(const DiamondTrap& obj);
+		DiamondTrap& operator=(const DiamondTrap& obj);
 		~DiamondTrap();
-		void	whoAmI();
-	
-};
 
-#endif
+		void attack(const std::string& target);
+		void whoAmI();
+};

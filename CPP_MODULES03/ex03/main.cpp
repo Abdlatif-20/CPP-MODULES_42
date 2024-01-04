@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 15:15:36 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/16 16:32:37 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/04 10:40:33 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/04 22:43:04 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
 int main()
 {
-    DiamondTrap diamond("ABDO");
-    diamond.attack("NO_NAME");
-    diamond.takeDamage(10);
-    diamond.beRepaired(10);
-    diamond.guardGate();
-    diamond.highFivesGuys();
-    diamond.whoAmI();
+	DiamondTrap d("Abdo");
+	// d.attack("morocco");
+	// d.takeDamage(10);
+	// d.beRepaired(10);
+	// d.guardGate();
+	// d.highFivesGuys();
+	// d.whoAmI();
+	return 0;
 }

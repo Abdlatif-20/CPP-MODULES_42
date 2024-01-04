@@ -5,23 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 17:06:39 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/16 16:27:56 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/04 12:16:31 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/04 22:36:56 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#pragma once
 
+#include<iostream>
 #include"ClapTrap.hpp"
 
-class FragTrap : public virtual ClapTrap
+class FragTrap : virtual public ClapTrap
 {
     public:
-        FragTrap(std::string name);
+        FragTrap();
+        FragTrap(const std::string& name);
+        FragTrap(const FragTrap& obj);
+        FragTrap& operator=(const FragTrap& obj);
         ~FragTrap();
-        void	highFivesGuys(void);
+
+        void highFivesGuys(void);
 };
-
-
-#endif

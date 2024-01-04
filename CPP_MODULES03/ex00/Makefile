@@ -5,33 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/13 15:16:15 by aben-nei          #+#    #+#              #
-#    Updated: 2023/12/13 15:17:10 by aben-nei         ###   ########.fr        #
+#    Created: 2024/01/04 11:02:45 by aben-nei          #+#    #+#              #
+#    Updated: 2024/01/04 22:49:08 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+Name = ClapTrap
 
-SRCS = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp
 
-OBJS = $(SRCS:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-CC = c++
+CPP = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+Flags = -Wall -Wextra -Werror -std=c++98
 
-all: $(NAME)
+all: $(Name)
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+$(Name): $(OBJ)
+	@$(CPP) $(Flags) $(OBJ) -o $(Name)
+	@echo "\033[32m[ClapTrap] Created\033[0m"
 
 %.o: %.cpp ClapTrap.hpp
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CPP) $(Flags) -c $< -o $@
+	@echo "\033[33m[ClapTrap] Compiling $<\033[0m"
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJ)
+	@echo "\033[31m[ClapTrap] Cleaned\033[0m"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(Name)
+	@echo "\033[31m[ClapTrap] Deleted\033[0m"
 
 re: fclean all

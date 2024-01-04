@@ -5,33 +5,39 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/13 15:33:26 by aben-nei          #+#    #+#              #
-#    Updated: 2023/12/16 16:30:08 by aben-nei         ###   ########.fr        #
+#    Created: 2024/01/04 11:02:45 by aben-nei          #+#    #+#              #
+#    Updated: 2024/01/04 22:49:08 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = DiamondTrap
+Name = DiamondTrap
 
-CC = c++
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+OBJ = $(SRC:.cpp=.o)
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+CPP = c++
 
-OBJS = $(SRCS:.cpp=.o)
+HDR = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
-all: $(NAME)
+Flags = -Wall -Wextra -Werror -std=c++98
 
-$(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+all: $(Name)
 
-%.o: %.cpp %.hpp
-	$(CC) $(FLAGS) -c $< -o $@
+$(Name): $(OBJ)
+	@$(CPP) $(Flags) $(OBJ) -o $(Name)
+	@echo "\033[32m[DiamondTrap] Created\033[0m"
+
+%.o: %.cpp $(HDR)
+	@$(CPP) $(Flags) -c $< -o $@
+	@echo "\033[33m[DiamondTrap] Compiling $<\033[0m"
 
 clean:
-	rm -rf $(OBJS)
+	@rm -rf $(OBJ)
+	@echo "\033[31m[DiamondTrap] Cleaned\033[0m"
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(Name)
+	@echo "\033[31m[DiamondTrap] Deleted\033[0m"
 
 re: fclean all

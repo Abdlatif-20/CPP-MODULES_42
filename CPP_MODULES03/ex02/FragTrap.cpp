@@ -5,27 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 17:07:22 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/15 17:09:31 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/04 12:16:28 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/04 12:30:05 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap()
 {
-    std::cout << "FragTrap constructor called" << std::endl;
-    this->setHitPoints(100);
-    this->setEnergyPoints(100);
-    this->setAttackDamage(30);
+	std::cout << "FragTrap " << this->name << " is born!" << std::endl;
+	this->name = "default";
+	this->hitPoint = 100;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
+}
+
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
+{
+	std::cout << "FragTrap " << this->name << " is born!" << std::endl;
+	this->hitPoint = 100;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
+}
+
+FragTrap::FragTrap(const FragTrap& obj) : ClapTrap(obj)
+{
+	std::cout << "FragTrap copy" << std::endl;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& obj)
+{
+	std::cout << "FragTrap operator=" << std::endl;
+	ClapTrap::operator=(obj);
+	return (*this);
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap destructor called" << std::endl;
+	std::cout << "FragTrap " << this->name << " is dead!" << std::endl;
 }
 
-void	FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " << getName() << " want high fives" << std::endl;
+	std::cout << "FragTrap " << this->name << " wants to high five!" << std::endl;
 }
