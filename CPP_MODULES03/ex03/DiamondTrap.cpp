@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:46:56 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/04 22:44:09 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:39:41 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 DiamondTrap::DiamondTrap()
 {
-	std::cout << "DiamondTrap default constructor called" << std::endl;
+	std::cout << "DiamondTrap default is born!" << std::endl;
 	this->name = "default";
 	ClapTrap::name = name + "_clap_name";
 	this->hitPoint = 100;
@@ -22,7 +22,7 @@ DiamondTrap::DiamondTrap()
 	this->attackDamage = 30;
 }
 
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name")
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
 	std::cout << "DiamondTrap " << name << " is born!" << std::endl;
 	this->name = name;

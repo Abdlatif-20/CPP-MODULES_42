@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:45:18 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/04 12:04:02 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:33:40 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "ScavTrap " << this->name << " is born!" << std::endl;
 	this->name = "default";
+	std::cout << "ScavTrap " << this->name << " is born!" << std::endl;
 	this->hitPoint = 100;
 	this->energyPoint = 50;
 	this->attackDamage = 20;
