@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:45:18 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/04 12:04:02 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/05 11:23:35 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void    ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->name << " has enterred in Gate keeper mode" << std::endl;
+	if (this->hitPoint > 0 && this->energyPoint > 0)
+		std::cout << "ScavTrap " << this->name << " has enterred in Gate keeper mode" << std::endl;
 }

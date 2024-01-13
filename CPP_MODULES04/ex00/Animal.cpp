@@ -5,18 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 16:53:07 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/16 16:54:24 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/05 17:06:50 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/13 11:14:39 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(){
-	std::cout << "Animal default constructor called" << std::endl;
+Animal::Animal()
+{
+	this->type = "animal";
+}
+Animal::Animal(const Animal& obj)
+{
+	*this = obj;
+}
+Animal& Animal::operator=(const Animal& obj)
+{
+	if (this != &obj)
+		this->type = obj.type;
+	return (*this);
 }
 
-Animal::Animal(std::string type) {
+Animal::~Animal()
+{
+}
+
+void Animal::makeSound() const
+{
+	std::cout << "Animal sound" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+	return (this->type);
+}
+
+void Animal::setType(std::string type)
+{
 	this->type = type;
-	std::cout << "Animal constructor called" << std::endl;
 }

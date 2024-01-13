@@ -6,15 +6,14 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:45:18 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/05 10:33:40 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/05 11:22:55 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap() : ClapTrap()
 {
-	this->name = "default";
 	std::cout << "ScavTrap " << this->name << " is born!" << std::endl;
 	this->hitPoint = 100;
 	this->energyPoint = 50;
@@ -60,5 +59,6 @@ void    ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << this->name << " has enterred in Gate keeper mode" << std::endl;
+	if (this->hitPoint > 0 && this->energyPoint > 0)
+		std::cout << "ScavTrap " << this->name << " has enterred in Gate keeper mode" << std::endl;
 }

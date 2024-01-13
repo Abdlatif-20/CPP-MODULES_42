@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:46:56 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/05 10:39:41 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/05 11:18:49 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"
 
 DiamondTrap::DiamondTrap(const DiamondTrap& obj) :ClapTrap(obj)
 {
-	this->name = obj.name;
+	*this = obj;
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
 

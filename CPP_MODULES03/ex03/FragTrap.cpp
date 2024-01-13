@@ -6,16 +6,15 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 12:16:28 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/04 12:30:05 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/05 11:44:18 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "FragTrap " << this->name << " is born!" << std::endl;
-	this->name = "default";
 	this->hitPoint = 100;
 	this->energyPoint = 100;
 	this->attackDamage = 30;
@@ -48,5 +47,6 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << this->name << " wants to high five!" << std::endl;
+	if (this->hitPoint > 0 && this->energyPoint > 0)
+		std::cout << "FragTrap " << this->name << " wants to high five!" << std::endl;
 }
