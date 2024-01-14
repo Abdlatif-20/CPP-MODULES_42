@@ -6,7 +6,7 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 14:34:22 by aben-nei          #+#    #+#              #
-#    Updated: 2024/01/13 10:28:47 by aben-nei         ###   ########.fr        #
+#    Updated: 2024/01/14 09:54:27 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ Name = Animal
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = $(wildcard *.cpp)
 

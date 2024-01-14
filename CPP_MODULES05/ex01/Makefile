@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/05 14:34:22 by aben-nei          #+#    #+#              #
-#    Updated: 2024/01/14 09:54:21 by aben-nei         ###   ########.fr        #
+#    Created: 2024/01/13 16:43:58 by aben-nei          #+#    #+#              #
+#    Updated: 2024/01/14 22:45:05 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = Animal
+Name = form
 
 CPP = c++
 
@@ -26,7 +26,7 @@ all: $(Name)
 
 $(Name): $(OBJ)
 	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(Name)
-	@echo "\033[32m[OK] \033[0m\033[1mCompilation \033[0m\033[36m$(Name)\033[0m"
+	@echo "\033[32m[OK] \033[0m\033[1mCompilation \033[0m\033[35m$(Name)\033[0m"
 
 %.o: %.cpp $(INC)
 	@$(CPP) $(CPPFLAGS) -c $< -o $@
