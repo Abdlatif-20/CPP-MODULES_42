@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:14:17 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 12:32:02 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/15 22:12:40 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string	name;
@@ -35,17 +35,23 @@ class Form
 			public:
 				virtual const char* what() const throw();
 		};
-		Form();
-		Form(std::string name, unsigned int gradeSign, unsigned int gradeExecute);
-		Form(const Form& obj);
-		Form& operator=(const Form& obj);
-		~Form();
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		AForm();
+		AForm(const std::string& target, const unsigned int& gradeSign, const unsigned int& gradeExecute);
+		AForm(const AForm& obj);
+		AForm& operator=(const AForm& obj);
+		virtual	~AForm();
 
-		const std::string &getName() const;
-		const bool &isSign() const;
-		const unsigned int &getGradeSign() const;
-		const unsigned int &getGradeExecute() const;
-		void	beSigned(Bureaucrat& bure);
+		const std::string&	getName() const;
+		const bool&			isSign() const;
+		const unsigned int&	getGradeSign() const;
+		const unsigned int&	getGradeExecute() const;
+		void				beSigned(Bureaucrat& bure);
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& obj);
+std::ostream& operator<<(std::ostream& os, const AForm& obj);

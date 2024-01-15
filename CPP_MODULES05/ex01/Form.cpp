@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 20:14:21 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/14 23:22:33 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:44:34 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,10 @@ Form::Form() : name("default"), sign(false), gradeSign(1), gradeExecute(1)
 
 Form::Form(std::string name, unsigned int gradeSign, unsigned int gradeExecute) : name(name), sign(false), gradeSign(gradeSign), gradeExecute(gradeExecute)
 {
-	try
-	{
-		if (gradeSign < 1 || gradeExecute < 1)
-			throw GradeTooHighException();
-		else if (gradeSign > 150 || gradeExecute > 150)
-			throw GradeTooLowException();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		exit(1);
-	}
+	if (gradeSign < 1 || gradeExecute < 1)
+		throw GradeTooHighException();
+	else if (gradeSign > 150 || gradeExecute > 150)
+		throw GradeTooLowException();
 }
 
 Form::Form(const Form& obj) : name(obj.name), gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute)
@@ -90,21 +82,7 @@ std::ostream& operator<<(std::ostream& os, const Form& obj)
 
 void	Form::beSigned(Bureaucrat& bure)
 {
-	try
-	{
-		if (bure.getGrade() > 150)
-			throw GradeTooLowException();
-		if (bure.getGrade() < 1)
-			throw GradeTooHighException();
-		if (gradeSign <= bure.getGrade())
-			sign = true;
-		std::cout << "\033[32m" << bure.getName() << " signs successfully " << name << "\033[0m" << std::endl;
-
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		exit(1);
-	}
-	
+	if (bure.getGrade() > gradeSign)
+		throw GradeTooLowException();
+	sign = true;
 }

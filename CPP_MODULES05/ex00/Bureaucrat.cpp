@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:43:37 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/14 20:05:51 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:41:35 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,12 @@ Bureaucrat::Bureaucrat() : name("default"), grade(150)
 
 Bureaucrat::Bureaucrat(const std::string& name, const unsigned int& grade) : name(name)
 {
-	try
-	{
-		if (grade > 150)
-			throw GradeTooLowException();
-		else if (grade < 1)
-			throw GradeTooHighException();
-		else
-			this->grade = grade;
-	}
-	catch(const std::exception& e){
-		std::cerr << e.what() << '\n';
-		exit(1);
-	}
+	if (grade > 150)
+		throw GradeTooLowException();
+	else if (grade < 1)
+		throw GradeTooHighException();
+	else
+		this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)
@@ -63,33 +56,17 @@ const unsigned int &Bureaucrat::getGrade() const
 
 void	Bureaucrat::incrementGrade()
 {
-	try
-	{
-		if (grade - 1 < 1)
-			throw GradeTooHighException();
-		grade--;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		exit(1);
-	}
+	if (grade - 1 < 1)
+		throw GradeTooHighException();
+	grade--;
 	
 }
 
 void	Bureaucrat::decrementGrade()
 {
-	try
-	{
-		if (grade + 1 > 150)
-			throw GradeTooLowException();
-		grade++;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		exit(1);
-	}
+	if (grade + 1 > 150)
+		throw GradeTooLowException();
+	grade++;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
