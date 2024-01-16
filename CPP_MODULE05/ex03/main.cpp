@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 21:53:09 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 22:09:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/13 16:43:39 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/16 14:33:44 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include <iostream>
+#include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
-class Intern
+int main()
 {
-	public:
-		Intern();
-		Intern(const Intern& obj);
-		Intern& operator=(const Intern& obj);
-		~Intern();
-		class FormDoesNotExistException : public std::exception
-		{
-			public:
-				virtual const char* what() const throw();
-		};
-
-		AForm* makeForm(std::string name, std::string target);		
-};
-
-int	getFormIndex(std::string name);
+	try
+	{
+		Intern someRandomIntern;
+		AForm* rrf;
+		Bureaucrat bender("Bender", 70);
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		rrf->beSigned(bender);
+		std::cout << *rrf << std::endl;
+		delete rrf;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	return (0);
+}

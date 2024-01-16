@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 16:43:39 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 21:47:02 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/15 21:53:09 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/16 14:45:44 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
+#pragma once
 
-int main()
+#include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+class Intern
 {
-	try
-	{
-		Bureaucrat bob("bob", -1);
-		RobotomyRequestForm form("form");
-		bob.signForm(form);
-		form.execute(bob);
-		bob.executeForm(form);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return (0);
-}
+	public:
+		Intern();
+		Intern(const Intern& obj);
+		Intern& operator=(const Intern& obj);
+		~Intern();
+		class FormDoesNotExistException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		AForm* makeForm(std::string name, std::string target);		
+};

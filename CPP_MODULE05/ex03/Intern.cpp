@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 21:53:05 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 22:10:34 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:19:07 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,14 @@ Intern::~Intern()
 {
 }
 
-int	getFormIndex(std::string name)
+static int	getFormIndex(const std::string& name)
 {
 	std::string names[3] = {"robotomy request", "shrubbery creation", "presidential pardon"};
 	int		i = 0;
 
-	while (i < 3)
-	{
-		if (names[i] == name)
-			return (i);
+	while (i < 3 && names[i] != name)
 		i++;
-	}
-	return (-1);
+	return (i);
 }
 
 AForm* Intern::makeForm(std::string name, std::string target)

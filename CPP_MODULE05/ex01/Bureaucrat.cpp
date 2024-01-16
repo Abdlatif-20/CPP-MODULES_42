@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:43:37 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 21:42:46 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:46:54 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ Bureaucrat::Bureaucrat(const std::string& name, const unsigned int& grade) : nam
 {
 	if (grade > 150)
 		throw GradeTooLowException();
-	else if (grade < 1)
+	if (grade < 1)
 		throw GradeTooHighException();
-	else
-		this->grade = grade;
+	this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)

@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 16:43:37 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 21:43:57 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:46:44 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ Bureaucrat::Bureaucrat(const std::string& name, const unsigned int& grade) : nam
 {
 	if (grade > 150)
 		throw GradeTooLowException();
-	else if (grade < 1)
+	if (grade < 1)
 		throw GradeTooHighException();
-	else
-		this->grade = grade;
+	this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)
@@ -59,6 +58,7 @@ void	Bureaucrat::incrementGrade()
 	if (grade - 1 < 1)
 		throw GradeTooHighException();
 	grade--;
+	
 }
 
 void	Bureaucrat::decrementGrade()
@@ -73,7 +73,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj)
 	std::cout << obj.getName() << ", bureaucrat grade " << obj.getGrade();
 	return os;
 }
- 
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high");
@@ -82,16 +82,4 @@ const char* Bureaucrat::GradeTooHighException::what() const throw()
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low");
-}
-void	Bureaucrat::signForm(AForm& form)
-{
-	form.beSigned(*this);
-	std::cout << "\033[32m" << name << " signs successfully " << form.getName() << "\033[0m" << std::endl;
-	
-}
-
-void	Bureaucrat::executeForm(AForm const & form) const
-{
-	form.execute(*this);
-	std::cout << "\033[32m" << name << " executes successfully " << form.getName() << "\033[0m" << std::endl;
 }

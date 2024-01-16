@@ -6,13 +6,13 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 18:29:46 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 21:29:11 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:06:30 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : target("default")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), target("default")
 {
 	
 }
@@ -21,7 +21,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AFor
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& obj)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& obj) : AForm(obj)
 {
 	*this = obj;
 }

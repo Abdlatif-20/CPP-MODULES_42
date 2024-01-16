@@ -6,15 +6,15 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 16:43:58 by aben-nei          #+#    #+#              #
-#    Updated: 2024/01/15 17:20:51 by aben-nei         ###   ########.fr        #
+#    Updated: 2024/01/16 14:48:38 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = form
+Name = form2
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = $(wildcard *.cpp)
 

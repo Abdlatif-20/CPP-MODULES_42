@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:43:29 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/15 21:45:15 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:44:36 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ShrubberyCreationForm::createTree(std::string target) const
 {
 	std::ofstream file;
 	file.open(target + "_shrubbery");
-
+	if (!file.good())
+		std::exit(1);
 	file << "       _-_" << std::endl;
 	file << "    /~~   ~~\\" << std::endl;
 	file << " /~~         ~~\\" << std::endl;
