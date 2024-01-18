@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:31:03 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/10 22:00:37 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:35:48 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ bool	check_if_degit(std::string str)
 {
 	for (int i = 0; i < (int)str.length(); i++)
 	{
-		if (isdigit(str[i]) == false)
+		if (std::isdigit(str[i]) == false)
 			return (false);
 	}
 	return (true);

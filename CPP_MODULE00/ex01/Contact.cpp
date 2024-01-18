@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:30:52 by aben-nei          #+#    #+#             */
-/*   Updated: 2023/12/11 08:40:06 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:35:48 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool check_PhoneNumber(std::string phoneNumber)
 {
 	for (int i = 0; phoneNumber[i]; i++)
 	{
-		if (!isdigit(phoneNumber[i]))
+		if (!std::isdigit(phoneNumber[i]))
 			return (false);
 	}
 	return (true);
