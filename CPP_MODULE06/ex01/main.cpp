@@ -6,45 +6,34 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 21:44:31 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/18 17:09:45 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/18 19:58:35 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "Serialize.hpp"
-
-#include <iostream>
-struct Data
-{
-	std::string s1;
-	int n;
-	std::string s2;
-};
-
-struct Data2
-{
-	std::string s1;
-	int n;
-	std::string s2;
-};
+#include "Serialize.hpp"
 
 int main()
 {
-	Data *data = new Data;
-	Data2 *data2;
+	Data* data = new Data;
+	data->s1 = "Hello";
+	data->n = 42;
+	data->s2 = "World";
 
-	data2 = (Data2 *)data;
-	std::cout << "data2: " << &data2 << std::endl;
-	std::cout << "data: " << &data << std::endl;
-	std::cout << "data2->s1: " << data2->s1 << std::endl;
-	std::cout << "data2->n: " << data2->n << std::endl;
-	// Using reinterpret_cast to convert a pointer to a uintptr_t
-	// std::cout<<"sizeof uintptr_t: "<<sizeof(uintptr_t)<<std::endl;
-	// std::cout<<"sizeof void*: "<<sizeof(void*)<<std::endl;
-	// std::cout<<"sizeof Data: "<<sizeof(data)<<std::endl;
-	// uintptr_t intValueAsInt = reinterpret_cast<uintptr_t>(&data);
-	// void* voidPtr = &data;
-
-	// std::cout << "The value of intPtr is: " << &data << std::endl;
-	// std::cout << "The value of voidPtr is: " << &intValueAsInt << std::endl;
+	uintptr_t raw = Serialize::serialize(data);
+	Data* data2 = Serialize::deserialize(raw);
+	
+	std::cout << data2->s1 << std::endl;
+	std::cout << data2->n << std::endl;
+	std::cout << data2->s2 << std::endl;
+	std::cout << "---------------------" << std::endl;
+	std::cout << data->s1 << std::endl;
+	std::cout << data->n << std::endl;
+	std::cout << data->s2 << std::endl;
+	std::cout << "---------------------" << std::endl;
+	std::cout << raw << std::endl;
+	std::cout << "---------------------" << std::endl;
+	std::cout << data << std::endl;
+	std::cout << data2 << std::endl;
+	std::cout << "---------------------" << std::endl;
 	return (0);
 }

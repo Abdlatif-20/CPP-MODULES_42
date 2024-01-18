@@ -6,7 +6,7 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 21:28:10 by aben-nei          #+#    #+#              #
-#    Updated: 2024/01/16 22:01:30 by aben-nei         ###   ########.fr        #
+#    Updated: 2024/01/18 21:22:19 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ Name = convert
 
 CPP = c++
 
-CPPFLAGS = #-Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = $(wildcard *.cpp)
 

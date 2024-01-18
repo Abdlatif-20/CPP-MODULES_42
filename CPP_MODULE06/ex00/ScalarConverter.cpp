@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:20:54 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/18 18:11:57 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/19 00:16:42 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,6 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-/*
-**** Valid Input *****
-
-INT ===> 42 only digits (+/-)
-FLOAT ===> 42.0f only digits (+/-) + '.' and f
-DOUBLE ===> 42.0 only digits (+/-) + '.'
-CHAR ===> 'a' only one char
-----------------------------------
-
--42fjhhj
-
-*/
-
-
 static void	checkIsInt(const std::string& str)
 {
 	for (int i = 0; str[i]; i++)
@@ -66,6 +52,8 @@ static void	checkIsFloat(const std::string& str)
 			continue;
 		if (str[i] == '.' || str[i] == 'f')
 		{
+			i == 0 && str[i] == 'f' ?
+			throw std::invalid_argument("Error: Invalid input") : i;
 			repeatPoint++;
 			repeatPoint > 2 ?
 			throw std::invalid_argument("Error: Invalid input") : repeatPoint;
@@ -157,7 +145,6 @@ void	ScalarConverter::convert(const std::string& str)
 	ScalarConverter converter(str);
 	checkInfinit(str);
 	int type = checkType(str);
-	std::cout << "type: " << type << std::endl;
 	switch (type)
 	{
 		case CHAR:

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 20:31:03 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/18 19:54:53 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/18 20:07:25 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/19 00:13:56 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,14 @@
 
 #include <iostream>
 
-struct Data
+class Base
 {
-	std::string s1;
-	int n;
-	std::string s2;
+	public:
+		virtual ~Base();
 };
 
-class Serialize
-{
-	private:
-	/************** canonical form **************/
-	
-		Serialize();
-		Serialize(const Serialize& obj);
-		Serialize& operator=(const Serialize& obj);
-		~Serialize();
-	public:
-	/************** member functions **************/
-	
-		static uintptr_t	serialize(Data* ptr);
-		static Data*		deserialize(uintptr_t raw);
-};
+/* ************** Functions ******************** */
+
+Base*	generate(void);
+void	identify(Base* p);
+void	identify(Base& p);

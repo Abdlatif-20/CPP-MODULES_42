@@ -1,38 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 20:31:03 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/18 19:54:53 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/18 20:07:19 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/18 21:22:05 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+#include "Base.hpp"
 
-struct Data
+class A : public Base
 {
-	std::string s1;
-	int n;
-	std::string s2;
-};
-
-class Serialize
-{
-	private:
-	/************** canonical form **************/
-	
-		Serialize();
-		Serialize(const Serialize& obj);
-		Serialize& operator=(const Serialize& obj);
-		~Serialize();
-	public:
-	/************** member functions **************/
-	
-		static uintptr_t	serialize(Data* ptr);
-		static Data*		deserialize(uintptr_t raw);
 };
