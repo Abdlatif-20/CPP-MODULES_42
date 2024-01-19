@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 21:20:54 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/19 00:16:42 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:51:25 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,16 @@ static int	checkType(const std::string& str)
 	return (INT);
 }
 
+static void	convertToLowerCase(std::string& str)
+{
+	for (int i = 0; str[i]; i++)
+		str[i] = std::tolower(str[i]);
+}
+
 static int	getIndex(const std::string& str)
 {
 	int i = 0;
+	convertToLowerCase(const_cast<std::string&>(str));
 	char inf[7][6] = {"nan", "nanf", "+inf", "+inff", "-inf", "-inff"};
 	for (; i < 7 && str != inf[i]; i++);
 	return (i);

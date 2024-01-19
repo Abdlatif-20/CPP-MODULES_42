@@ -6,13 +6,15 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:31:03 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/18 19:54:53 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:59:35 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+
+/* ************** Data Structure ************** */
 
 struct Data
 {

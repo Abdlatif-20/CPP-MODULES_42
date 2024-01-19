@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 20:16:44 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/18 21:27:44 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:28:23 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 
 int main()
 {
-	srand(time(NULL));
-	
 	Base *base = new Base;
 	Base *a = new A;
 	Base *b = new B;
 	Base *c = new C;
-	
+
 	Base *random = generate();
 
 	std::cout << "identify : " << std::endl;
@@ -41,6 +39,6 @@ int main()
 	delete a;
 	delete b;
 	delete c;
-	delete random;	
+	delete random;
 	return (0);
 }
