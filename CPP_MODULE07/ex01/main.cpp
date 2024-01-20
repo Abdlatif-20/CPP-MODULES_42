@@ -5,17 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 10:40:33 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/21 00:19:48 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/20 17:38:12 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/20 20:32:47 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "iter.hpp"
+
+void print(int i)
+{
+	std::cout << i << std::endl;
+}
 
 int main()
 {
-	ClapTrap b("Abdo");
-	b.takeDamage(10);
-	b.attack("russia");
-	return 0;
+	int arr[] = {1, 2, 3, 4, 5};
+	iter(arr, 5, print);
 }

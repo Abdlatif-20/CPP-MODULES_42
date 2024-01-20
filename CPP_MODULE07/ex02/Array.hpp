@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 10:40:33 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/21 00:19:48 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/20 18:49:08 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/20 21:40:23 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#pragma once
 
-int main()
+#include<iostream>
+
+template<typename T>
+class Array
 {
-	ClapTrap b("Abdo");
-	b.takeDamage(10);
-	b.attack("russia");
-	return 0;
-}
+	private:
+		T *array;
+		unsigned int size;
+	public:
+		Array();
+		Array(unsigned int n);
+		Array(Array const &rhs);
+		Array &operator=(Array const &rhs);
+		T &operator[](unsigned int i);
+		unsigned int getSize() const;
+		~Array();
+};
+
+#include "Array.tpp"

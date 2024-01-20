@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 10:40:33 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/21 00:19:48 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/20 17:38:15 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/20 18:46:01 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#pragma once
 
-int main()
+#include <iostream>
+
+template<typename T, typename T1, typename F>
+
+void	iter(T*	arr, T1 len, F func)
 {
-	ClapTrap b("Abdo");
-	b.takeDamage(10);
-	b.attack("russia");
-	return 0;
+	for (int i = 0; i < len; i++)
+	{
+		func(arr[i]);
+	}
 }
