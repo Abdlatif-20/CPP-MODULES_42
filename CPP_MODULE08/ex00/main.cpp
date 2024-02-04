@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 17:11:57 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/21 18:32:38 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/22 02:15:21 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/25 04:51:41 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "easyfind.hpp"
 
-#include <iostream>
-
-template <typename T>
-void	swap(T& a, T& b)
+int main()
 {
-	T	tmp;
-	tmp = a;
-	a = b;
-	b = tmp;
-}
+	std::vector<int> v;
+	std::list<int> l;
 
-template <typename T>
-T	min(T a, T b)
-{
-	return((a < b) ? a : b);
-}
-
-template <typename T>
-T	max(T a, T b)
-{
-	return((a > b) ? a : b);
+	for (int i = 0; i < 10; i++)
+	{
+		v.push_back(i);
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		l.push_back(i);
+	}
+	std::cout << *easyfinde(v, 5) << std::endl;
+	try{
+		std::cout << *easyfinde(v, 15) << std::endl;
+	}catch(std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+	return 0;
 }

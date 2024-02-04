@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 20:50:53 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/20 21:41:30 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/23 03:08:53 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ Array<T>::Array(unsigned int n)
 {
 	this->size = n;
 	this->array = new T[n];
-	for (unsigned int i = 0; i < n; i++)
-		this->array[i] = 0;
 }
 
 template<typename T>
@@ -56,6 +54,14 @@ Array<T> &Array<T>::operator=(Array const &rhs)
 
 template<typename T>
 T &Array<T>::operator[](unsigned int i)
+{
+	if (i >= this->size)
+		throw std::exception();
+	return (this->array[i]);
+}
+
+template<typename T>
+const T &Array<T>::operator[](unsigned int i) const
 {
 	if (i >= this->size)
 		throw std::exception();

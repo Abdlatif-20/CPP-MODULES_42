@@ -67,7 +67,11 @@
         "__functional_03": "cpp",
         "memory_resource": "cpp",
         "filesystem": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "list": "cpp",
+        "__cxx_version": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     },
     "CodeGPT.apiKey": "Azure"
 }

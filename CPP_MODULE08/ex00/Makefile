@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/20 17:10:55 by aben-nei          #+#    #+#              #
-#    Updated: 2024/01/22 20:53:41 by aben-nei         ###   ########.fr        #
+#    Created: 2024/01/22 02:18:27 by aben-nei          #+#    #+#              #
+#    Updated: 2024/01/24 01:49:29 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = whatever
+Name = find
 
 CPP = c++
 
@@ -20,6 +20,8 @@ SRC = $(wildcard *.cpp)
 
 INC = $(wildcard *.hpp)
 
+INCT = $(wildcard *.tpp)
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(Name)
@@ -28,7 +30,7 @@ $(Name): $(OBJ)
 	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(Name)
 	@echo "\033[32m[OK] \033[0m\033[1mCompilation \033[0m\033[35m$(Name)\033[0m"
 
-%.o: %.cpp $(INC)
+%.o: %.cpp $(INC) $(INCT)
 	@$(CPP) $(CPPFLAGS) -c $< -o $@
 	@echo "\033[32m[OK] \033[0m\033[1mCompilation $@\033[0m"
 

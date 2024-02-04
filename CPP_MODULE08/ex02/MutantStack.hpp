@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 17:11:57 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/21 18:32:38 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/01/23 17:08:01 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/01/25 05:27:37 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <stack>
+#include <vector>
 #include <iostream>
 
-template <typename T>
-void	swap(T& a, T& b)
+template <typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
-	T	tmp;
-	tmp = a;
-	a = b;
-	b = tmp;
-}
+		public:
+			MutantStack();
+			MutantStack(MutantStack const &rhs);
+			MutantStack &operator=(MutantStack const &rhs);
+			~MutantStack();
+			typedef typename std::stack<T, Container>::container_type::iterator iterator;
+			iterator begin();
+			iterator end();
+};
 
-template <typename T>
-T	min(T a, T b)
-{
-	return((a < b) ? a : b);
-}
-
-template <typename T>
-T	max(T a, T b)
-{
-	return((a > b) ? a : b);
-}
+#include "MutantStack.tpp"

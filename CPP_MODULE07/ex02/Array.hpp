@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 18:49:08 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/20 21:40:23 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/01/23 01:12:20 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Array
 		Array(Array const &rhs);
 		Array &operator=(Array const &rhs);
 		T &operator[](unsigned int i);
+		const T &operator[](unsigned int i) const;
 		unsigned int getSize() const;
 		~Array();
 };
