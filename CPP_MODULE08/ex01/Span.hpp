@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 04:33:14 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/02/04 21:16:17 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/09 11:42:50 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class Span
 				throw std::exception();
 			this->v.insert(this->v.end(), begin, end);
 		}
-
 		unsigned int	shortestSpan();
 		unsigned int	longestSpan();
 		unsigned int	size() const;
+		std::vector<int> getVector() const;
 };

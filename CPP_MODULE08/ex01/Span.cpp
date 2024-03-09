@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 04:33:12 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/02/04 21:16:31 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/04 00:07:02 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,9 @@ unsigned int	Span::longestSpan()
 	int min = *std::min_element(this->v.begin(), this->v.end());
 	int max = *std::max_element(this->v.begin(), this->v.end());
 	return (max - min);
+}
+
+std::vector<int> Span::getVector() const
+{
+	return (this->v);
 }
