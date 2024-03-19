@@ -1,4 +1,4 @@
-# cpp_module_04
+# CPP MODULES
 Introduction to C++
 
 ### The project cpp_module_04 covers:
