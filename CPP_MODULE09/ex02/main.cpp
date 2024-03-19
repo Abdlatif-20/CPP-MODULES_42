@@ -1,29 +1,28 @@
-/* ************************************************************************** */
+	/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 04:28:25 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/11 16:57:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/03/12 22:47:50 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/03/13 17:45:21 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "PmergeMe.hpp"
 
 int main(int ac, char **av)
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./bitcoin [file]" << std::endl;
+	if (ac < 2) {
+		std::cerr << "Usage: ./PmergeMe numbers" << std::endl;
 		return 1;
 	}
-	try{
-		BitcoinExchange::btcExchange(av[1], "data.csv");
-	}
-	catch(const std::exception& e){
-		std::cerr << e.what() << '\n';
-	}
+	PmergeMe p;
+	std::string numbers = p.takingNumbers(av);
+	std::cout << "before: " << numbers << std::endl;
+	p.sortNumbersDeq(numbers);
+	p.sortNumbersVec(numbers);
 	return 0;
 }
+

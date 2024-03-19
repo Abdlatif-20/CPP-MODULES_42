@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 04:28:25 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/11 16:57:09 by aben-nei         ###   ########.fr       */
+/*   Created: 2024/03/11 21:18:04 by aben-nei          #+#    #+#             */
+/*   Updated: 2024/03/12 22:00:39 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#pragma once
 
-int main(int ac, char **av)
+#include <iostream>
+#include <string>
+#include <stack>
+#include <vector>
+
+class RPN
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./bitcoin [file]" << std::endl;
-		return 1;
-	}
-	try{
-		BitcoinExchange::btcExchange(av[1], "data.csv");
-	}
-	catch(const std::exception& e){
-		std::cerr << e.what() << '\n';
-	}
-	return 0;
-}
+	private:
+		std::string _expr;
+		std::stack<int> _stack;
+
+	public:
+		RPN();
+		~RPN();
+		RPN(const RPN& other);
+		RPN& operator=(const RPN& other);
+		void parse(std::string expr);
+		
+};

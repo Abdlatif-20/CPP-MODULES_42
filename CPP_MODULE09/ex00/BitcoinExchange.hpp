@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 04:28:29 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/01/27 03:54:32 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/12 22:32:20 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ class Date
 		int		getMonth() const;
 		int		getYear() const;
 		bool	operator<(const Date& obj) const;
+		bool	operator!=(const Date& other) const;
+
+    bool operator==(const Date& other) const;
 		~Date();
 };
 
@@ -48,7 +51,8 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange& obj);
 		BitcoinExchange& operator=(const BitcoinExchange& obj);
 		~BitcoinExchange();
+		static void	fillData(const char *input);
 		static void	btcExchange(const char *input, const char *data);
 		static void	parseInsertData(const std::string& year, const std::string& month, const std::string& day, const std::string& value);
-		static void	readyToExchange(const char *data);
+		static void	readyToExchange(std::vector<std::string> date, std::string value);
 };

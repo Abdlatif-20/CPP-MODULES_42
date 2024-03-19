@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/24 04:28:06 by aben-nei          #+#    #+#              #
-#    Updated: 2024/03/12 22:59:11 by aben-nei         ###   ########.fr        #
+#    Created: 2024/03/11 21:17:58 by aben-nei          #+#    #+#              #
+#    Updated: 2024/03/18 03:10:11 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = btc
+Name = PmergeMe
 
 CPP = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 SRC = $(wildcard *.cpp)
 
