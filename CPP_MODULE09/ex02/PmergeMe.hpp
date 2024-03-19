@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 22:49:35 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/18 23:19:07 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/19 04:38:23 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,16 @@ class PmergeMe
 		t_vector	_pend;
 		t_pair		_numbers;
 		int			_struggler;
+		double		_timeTakenVec;
 		bool		_foundStruggler;
 		t_vector	_mainChain;
 		// Deque
 		t_deque		_pendDeq;
 		int			_strugglerDeq;
-		bool		_foundStrugglerDeq;
 		t_deque		_mainChainDeq;
 		t_dequePair	_numbersDeque;
+		double		_timeTakenDeque;
+		bool		_foundStrugglerDeq;
 	public:
 	/****************** constructor ********************/
 		PmergeMe();
@@ -54,6 +56,7 @@ class PmergeMe
 		t_deque		getMainChainDeq() const;
 		void		printNumberVec();
 		void		printNumberDeq();
+		void		printStatus(size_t size, const std::string& container, double time) const;
 		/************** Vec *****************/
 		void		detecteLarge();
 		void		prepareSortPair();

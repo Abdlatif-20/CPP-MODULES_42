@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 22:49:30 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/19 02:00:09 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/19 04:44:07 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ PmergeMe::PmergeMe()
 	_strugglerDeq = 0;
 	_foundStruggler = false;
 	_foundStrugglerDeq = false;
+	_timeTakenVec = 0;
+	_timeTakenDeque = 0;
 }
 
 PmergeMe::~PmergeMe()
@@ -187,6 +189,7 @@ void PmergeMe::sortNumbersVec(const std::string &str)
 {
 	std::vector<std::string> numbers = split(str, ' ');
 	clock_t start = 0, end = 0;
+	start = clock();
 	if (numbers.size() == 1)
 	{
 		_struggler = stringToInt(numbers[0]);
@@ -207,9 +210,8 @@ void PmergeMe::sortNumbersVec(const std::string &str)
 			}
 			_numbers.push_back(std::make_pair(stringToInt(numbers[i]), stringToInt(numbers[i + 1])));
 		}
-		start = clock();
 		detecteLarge();
-		prepareSortPair();
+		std::sort(_numbers.begin(), _numbers.end());
 		createMainChainAndPend();
 		size = _pend.size();
 		size_t fixSize = size;
@@ -229,9 +231,8 @@ void PmergeMe::sortNumbersVec(const std::string &str)
 	if (_foundStruggler)
 		mergeStruggler();
 	end = clock();
-	double time_taken_vector = double(end - start) / double(CLOCKS_PER_SEC) * 1e6;
-	std::cout << "Time to process a range of " << _mainChain.size() <<
-		" elements with std::vector: " << time_taken_vector << " us" << std::endl;
+	_timeTakenVec = static_cast<double>(end - start) / (double)CLOCKS_PER_SEC * 1e6;
+	printStatus(_numbers.size(), "std::vector", _timeTakenVec);
 }
 
 // sort deque numbers
@@ -243,22 +244,6 @@ void PmergeMe::detecteLargeDeq()
 		{
 			std::pair<int, int> tmp = _numbersDeque[i];
 			_numbersDeque[i] = std::make_pair(_numbersDeque[i].second, tmp.first);
-		}
-	}
-}
-
-void PmergeMe::prepareSortPairDeq()
-{
-	for (size_t i = 0; i < _numbersDeque.size(); i++)
-	{
-		for (size_t j = 0; j < _numbersDeque.size(); j++)
-		{
-			if (_numbersDeque[i].first < _numbersDeque[j].first)
-			{
-				std::pair<int, int> tmp = _numbersDeque[i];
-				_numbersDeque[i] = _numbersDeque[j];
-				_numbersDeque[j] = tmp;
-			}
 		}
 	}
 }
@@ -293,10 +278,17 @@ void	PmergeMe::mergeStrugglerDeq()
 	_mainChainDeq.insert(it, _strugglerDeq);
 }
 
+void	PmergeMe::printStatus(size_t size, const std::string& container, double time) const
+{
+	std::cout << "Time to process a range of " << size <<
+		" elements with " << container << ": " << time << " us" << std::endl;
+}
+
 void PmergeMe::sortNumbersDeq(const std::string &str)
 {
 	std::vector<std::string> numbers = split(str, ' ');
 	clock_t start = 0, end = 0;
+	start = clock();
 	if (numbers.size() == 1)
 	{
 		_strugglerDeq = stringToInt(numbers[0]);
@@ -317,9 +309,8 @@ void PmergeMe::sortNumbersDeq(const std::string &str)
 			}
 			_numbersDeque.push_back(std::make_pair(stringToInt(numbers[i]), stringToInt(numbers[i + 1])));
 		}
-		start = clock();
 		detecteLargeDeq();
-		prepareSortPairDeq();
+		std::sort(_numbersDeque.begin(), _numbersDeque.end());
 		createMainChainAndPendDeq();
 		size = _pendDeq.size();
 		size_t fixSize = size;
@@ -339,9 +330,8 @@ void PmergeMe::sortNumbersDeq(const std::string &str)
 	if (_foundStrugglerDeq)
 		mergeStrugglerDeq();
 	end = clock();
-	double time_taken_deque = double(end - start) / double(CLOCKS_PER_SEC) * 1e6;
+	_timeTakenDeque = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
 	std::cout <<"after: ";
 	printNumberDeq();
-	std::cout << "Time to process a range of " << _mainChainDeq.size() <<
-		" elements with std::deque: " << time_taken_deque << " us" << std::endl;
+	printStatus(_numbersDeque.size(), "std::deque", _timeTakenDeque);
 }
