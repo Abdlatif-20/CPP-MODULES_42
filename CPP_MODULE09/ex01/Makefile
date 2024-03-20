@@ -6,11 +6,11 @@
 #    By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 21:17:58 by aben-nei          #+#    #+#              #
-#    Updated: 2024/03/12 22:59:20 by aben-nei         ###   ########.fr        #
+#    Updated: 2024/03/20 17:16:51 by aben-nei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name = RPN
+NAME = RPN
 
 CPP = c++
 
@@ -22,11 +22,11 @@ INC = $(wildcard *.hpp)
 
 OBJ = $(SRC:.cpp=.o)
 
-all: $(Name)
+all: $(NAME)
 
-$(Name): $(OBJ)
-	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(Name)
-	@echo "\033[32m[OK] \033[0m\033[1mCompilation \033[0m\033[35m$(Name)\033[0m"
+$(NAME): $(OBJ)
+	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@echo "\033[32m[OK] \033[0m\033[1mCompilation \033[0m\033[35m$(NAME)\033[0m"
 
 %.o: %.cpp $(INC)
 	@$(CPP) $(CPPFLAGS) -c $< -o $@
@@ -37,7 +37,7 @@ clean:
 	@echo "\033[31m[OK] \033[0m\033[1mDelete $(OBJ)\033[0m"
 
 fclean: clean
-	@rm -rf $(Name)
-	@echo "\033[31m[OK] \033[0m\033[1mDelete $(Name)\033[0m"
+	@rm -rf $(NAME)
+	@echo "\033[31m[OK] \033[0m\033[1mDelete $(NAME)\033[0m"
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 21:18:04 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/12 22:00:39 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:45:12 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ class RPN
 		~RPN();
 		RPN(const RPN& other);
 		RPN& operator=(const RPN& other);
-		void parse(std::string expr);
+		void rpn(std::string expr);
 		
 };

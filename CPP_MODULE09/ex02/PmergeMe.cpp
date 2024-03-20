@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 22:49:30 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/19 04:44:07 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:41:42 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,11 @@ static std::vector<std::string> split(const std::string& str, const char sep)
 	std::string token;
 	std::istringstream tokenStream(str);
 	while (std::getline(tokenStream, token, sep))
+	{
+		if (token.empty())
+			continue;
 		result.push_back(token);
+	}
 	return result;
 }
 
@@ -222,7 +226,7 @@ void PmergeMe::sortNumbersVec(const std::string &str)
 			jac > 1 ? jac-- : jac;
 			if (jac == 1)
 				continue;
-			if (jac > fixSize)
+			if (jac >= fixSize)
 				jac = fixSize - 1;
 			mergeNumbers(jac);
 			size--;
@@ -321,7 +325,7 @@ void PmergeMe::sortNumbersDeq(const std::string &str)
 			jac > 1 ? jac-- : jac;
 			if (jac == 1)
 				continue;
-			if (jac > fixSize)
+			if (jac >= fixSize)
 				jac = fixSize - 1;
 			mergeNumbersDeq(jac);
 			size--;

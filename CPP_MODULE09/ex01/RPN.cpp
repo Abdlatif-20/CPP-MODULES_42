@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 21:18:01 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/12 22:22:25 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:14:56 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,42 +41,45 @@ static int charToInt(char c)
 	return c - '0';
 }
 
-void RPN::parse(std::string expr)
+void RPN::rpn(std::string expr)
 {
 	int res = 0;
 	for (size_t i = 0; i < expr.length(); i++)
 	{
-		if (expr[i] != '+' && expr[i] != '-' && expr[i] != '*'
-			&& expr[i] != '/' && !isdigit(expr[i]) && expr[i] != ' ')
+		if (expr.find_first_not_of("0123456789+-*/ ") != std::string::npos)
 			return (std::cout << "Error" << std::endl, void());
 		if (expr[i] == ' ')
 			continue;
-		if (isdigit(expr[i]) && _stack.size() < 2)
+		if (isdigit(expr[i]))
 			_stack.push(charToInt(expr[i]));
 		if (expr[i] == '+' || expr[i] == '-' || expr[i] == '*' || expr[i] == '/')
 			_expr = expr[i];
-		if (_stack.size() == 2 && !_expr.empty())
+		if (_stack.size() > 1 && !_expr.empty())
 		{
 			int n1 = _stack.top();
 			_stack.pop();
 			int n2 = _stack.top();
 			_stack.pop();
-			if (_expr == "+")
-				res = n1 + n2;
+			if (_expr == "*")
+				res = n2 * n1;
+			else if (_expr == "+")
+				res = n2 + n1;
 			else if (_expr == "-")
-				res = n1 - n2;
-			else if (_expr == "*")
-				res = n1 * n2;
+				res = n2 - n1;
 			else if (_expr == "/")
-				res = n1 / n2;
-			res < 0 ? res *= -1 : res;
+			{
+				if (n1 == 0)
+					return (std::cout << "cant devide by 0" << std::endl, void());
+				res = n2 / n1;
+			}
 			_stack.push(res);
 			_expr.clear();
 		}
-		if (!_expr.empty() && _stack.size() != 2)
+		else if (_stack.size() == 1 && !_expr.empty())
 			return (std::cout << "Error" << std::endl, void());
 	}
 	if (_stack.size() != 1)
 		return (std::cout << "Error" << std::endl, void());
+	res = _stack.top();
 	std::cout << res << std::endl;
 }

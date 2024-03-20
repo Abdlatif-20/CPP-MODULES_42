@@ -20,6 +20,8 @@ int main(int ac, char **av)
 	}
 	PmergeMe p;
 	std::string numbers = p.takingNumbers(av);
+	if (numbers.empty() || numbers.find_first_of("0123456789") == std::string::npos)
+		return (std::cerr << "Error" << std::endl, 1);
 	std::cout << "before: " << numbers << std::endl;
 	p.sortNumbersDeq(numbers);
 	p.sortNumbersVec(numbers);

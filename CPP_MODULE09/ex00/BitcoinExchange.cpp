@@ -6,7 +6,7 @@
 /*   By: aben-nei <aben-nei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 04:28:32 by aben-nei          #+#    #+#             */
-/*   Updated: 2024/03/12 22:44:49 by aben-nei         ###   ########.fr       */
+/*   Updated: 2024/03/20 01:26:15 by aben-nei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,14 @@ static bool isLeapYear(int year)
 	}
 }
 
+static float	stringToFloat(const std::string& str)
+{
+	std::istringstream iss(str);
+	float result;
+	iss >> result;
+	return result;
+}
+
 static bool	checkValue(const std::string& value)
 {
 	int flagPoint = 0;
@@ -82,7 +90,7 @@ static bool	checkValue(const std::string& value)
 		if (!std::isdigit(value[i]) && value[0] != '-')
 			return (std::cout << "Error: invalid value" << std::endl, false);
 	}
-	long valueLong = std::atol(value.c_str());
+	float valueLong = stringToFloat(value);
 	if (valueLong > 1000)
 		return (std::cout << "Error: too large a number" << std::endl, false);
 	if (valueLong < 0)
@@ -90,7 +98,7 @@ static bool	checkValue(const std::string& value)
 	return true;
 }
 
-int stringToInt(const std::string& str)
+static int stringToInt(const std::string& str)
 {
 	std::istringstream iss(str);
 	int result;
@@ -98,30 +106,20 @@ int stringToInt(const std::string& str)
 	return result;
 }
 
-float	stringToFloat(const std::string& str)
-{
-	std::istringstream iss(str);
-	float result;
-	iss >> result;
-	return result;
-}
 
 bool	checkDate(const std::string& year, const std::string& month, const std::string& day)
 {
-	std::string _day = day, _month = month, _year = year;
-	month.length() == 1 ? _month += "0" : _month;
-	day.length() == 1 ? _day += "0" : _day;
-	if (_day.length() != 2 || _month.length() != 2 || _year.length() != 4)// check length
+	if (day.length() > 2 || month.length() > 2 || year.length() != 4)// check length
 		return (std::cout << "Error: invalid date" << std::endl, false);
-	if (stringToInt(_year) < 2005 || stringToInt(_year) > 2024) // check year
+	if (stringToInt(year) < 2005 || stringToInt(year) > 2024) // check year
 		return (std::cout << "Error: invalid year" << std::endl, false);
-	if (stringToInt(_month) < 1 || stringToInt(_month) > 12) // check month
+	if (stringToInt(month) < 1 || stringToInt(month) > 12) // check month
 		return (std::cout << "Error: invalid month" << std::endl, false);
-	if (stringToInt(_day) < 1 || stringToInt(_day) > 31) // check day 
+	if (stringToInt(day) < 1 || stringToInt(day) > 31) // check day 
 		return (std::cout << "Error: invalid day" << std::endl, false);
-	if (isLeapYear(stringToInt(_year)) && stringToInt(_month) == 2 && stringToInt(_day) > 29) // check leap year
+	if (isLeapYear(stringToInt(year)) && stringToInt(month) == 2 && stringToInt(day) > 29) // check leap year
 		return (std::cout << "Error: invalid day" << std::endl, false);
-	if (!isLeapYear(stringToInt(_year)) && stringToInt(_month) == 2 && stringToInt(_day) > 28) // check leap year
+	if (!isLeapYear(stringToInt(year)) && stringToInt(month) == 2 && stringToInt(day) > 28) // check leap year
 		return (std::cout << "Error: invalid day" << std::endl, false);
 	return true;
 }
@@ -142,34 +140,31 @@ std::vector<std::string> customSplit(const std::string& str, char delim)
 	return tokens;
 }
 
-void	printfMap(std::map<Date, float> currencies)
-{
-	for (std::map<Date, float>::iterator it = currencies.begin(); it != currencies.end(); ++it)
-		std::cout <<"year: " << it->first.getYear() << " month: " << it->first.getMonth() << " day: " << it->first.getDay() << " value: " << it->second << std::endl;
-}
-
 void BitcoinExchange::readyToExchange(std::vector<std::string> date, std::string value)
 {
-    std::string day = trim(date[2]);
-    std::string month = trim(date[1]);
-    std::string year = trim(date[0]);
-    Date searchDate(stringToInt(day), stringToInt(month), stringToInt(year));
-
-    // Find the exact or nearest lower date
-    std::map<Date, float>::iterator it = currencies.lower_bound(searchDate);
-    if (it != currencies.begin() && it != currencies.end() && it->first != searchDate) {
-        --it; // Move iterator to nearest lower date
-    }
-    // Calculate result
-    double result;
-    if (it != currencies.end())
-    {
-        result = it->second * stringToFloat(value);
-        std::cout <<year << "-" << month << "-" << day << " => " << value << " = " << result << std::endl;
-    }
-    else {
-        std::cout << "No data available for the provided date or earlier." << std::endl;
-    }
+	std::string day = trim(date[2]);
+	std::string month = trim(date[1]);
+	std::string year = trim(date[0]);
+	Date searchDate(stringToInt(day), stringToInt(month), stringToInt(year));
+	// Find the exact or nearest lower date
+	std::map<Date, float>::iterator it = currencies.lower_bound(searchDate);
+	if (it != currencies.end() && it->first != searchDate && it == currencies.begin()) {
+		std::cout << "No data available for the provided date or earlier." << std::endl;
+		return ;
+	}
+	else if (it != currencies.begin() && it != currencies.end() && it->first != searchDate) {
+		--it; // Move iterator to nearest lower date
+	}
+	// Calculate result
+	double result;
+	if (it != currencies.end())
+	{
+		result = it->second * stringToFloat(value);
+		std::cout <<year << "-" << month << "-" << day << " => " << value << " = " << result << std::endl;
+	}
+	else {
+		std::cout << "No data available for the provided date or earlier." << std::endl;
+	}
 }
 
 void	BitcoinExchange::fillData(const char *input)
